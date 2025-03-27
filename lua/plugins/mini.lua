@@ -33,7 +33,6 @@ return {
       },
     },
   },
-  -- { "echasnovski/mini.indentscope", opts = {} },
   { "echasnovski/mini.hipatterns", opts = {} },
   -- {
   --   "echasnovski/mini.files",
@@ -48,8 +47,9 @@ return {
   --     },
   --   },
   -- },
-  { "echasnovski/mini.move", opts = {} },
-  { "echasnovski/mini.operators", opts = {} },
+  {"echasnovski/mini.splitjoin", opts = {}},
+  {"echasnovski/mini.move", opts = {}},
+  -- { "echasnovski/mini.operators", opts = {} },
   { "echasnovski/mini.pairs", opts = {} },
   {
     "echasnovski/mini.starter",
