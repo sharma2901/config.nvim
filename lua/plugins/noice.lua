@@ -1,3 +1,11 @@
+-- options for route
+ local routes_opts = {
+      {
+        view = "mini",
+        filter = { event = "msg_show" },
+      },
+    }
+
 -- options for persets
 local presets_opts = {
   bottom_search = false, -- use a classic bottom cmdline for search
@@ -29,6 +37,7 @@ return {
     require("noice").setup({
       lsp = lsp_opts,
       presets = presets_opts,
+      routes = routes_opts
     })
   end,
 
