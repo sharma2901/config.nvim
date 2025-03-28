@@ -70,3 +70,4 @@ opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = ""
 opt.foldlevel = 99
 opt.foldlevelstart = 1
+opt.foldenable = false

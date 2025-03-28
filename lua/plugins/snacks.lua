@@ -17,8 +17,9 @@ return {
         relative = "cursor", -- This will make it appear near the cursor
         row = 1,            -- Adjust these values to position the window
         col = 0,
+      },
     },
-    },
+    dashboard = {enabled = true},
     bigfile = { enabled = true },
     -- notify = { enabled = true },
     dim = { enabled = true },

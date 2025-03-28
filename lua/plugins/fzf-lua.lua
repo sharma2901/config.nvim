@@ -29,7 +29,7 @@ return {
       desc = "[F]id [C]onfig"
     },
     {
-      "<leader>fr",
+      "<leader>rr",
       function() require('fzf-lua').oldfiles() end,
       desc = "[F]ind [R]ecent"
     },
