@@ -23,7 +23,7 @@ opt.showmode = false -- Don't show the mode, since it's already in the status li
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  opt.clipboard = 'unnamedplus'
+    opt.clipboard = 'unnamedplus'
 end)
 
 opt.breakindent = true -- Enable break indent
@@ -65,3 +65,8 @@ opt.undofile = true
 opt.undolevels = 10000
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ""
+opt.foldlevel = 99
+opt.foldlevelstart = 1

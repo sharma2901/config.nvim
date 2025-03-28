@@ -3,7 +3,7 @@ return {
   { "echasnovski/mini.align", opts = {} },
   { "echasnovski/mini.tabline", opts = {} },
   { "echasnovski/mini.ai", opts = {} },
-  { "echasnovski/mini.basics", opts = {} },
+  { "echasnovski/mini.jump", opts = {} },
   {
     "echasnovski/mini.notify",
     opts = {
@@ -51,45 +51,6 @@ return {
   {"echasnovski/mini.move", opts = {}},
   -- { "echasnovski/mini.operators", opts = {} },
   { "echasnovski/mini.pairs", opts = {} },
-  {
-    "echasnovski/mini.starter",
-    event = "VimEnter",
-    opts = function()
-      local new_section = function(name, action, section)
-        return { name = name, action = action, section = " " .. section }
-      end
-
-      return {
-        header = table.concat({
-          "      ,l;             c,      ",
-          "   .:ooool'           loo:.   ",
-          " .,oooooooo:.         looooc, ",
-          "l:,loooooooool,       looooool",
-          "llll,;ooooooooc.      looooooo",
-          "lllllc,coooooooo;     looooooo",
-          "lllllll;,loooooool'   looooooo",
-          "lllllllc .:oooooooo:. looooooo",
-          "lllllllc   'loooooool,:ooooooo",
-          "lllllllc     ;ooooooooc,cooooo",
-          "lllllllc      .coooooooo;;looo",
-          "lllllllc        ,loooooool,:ol",
-          " 'cllllc         .:oooooooo;. ",
-          "   .;llc           .loooo:.   ",
-          "      ,;             ;l;      ",
-          "                              ",
-        }, "\n"),
-        evaluate_single = true,
-        items = {
-          new_section("Find file", "FzfLua files", "FZF"),
-          new_section("Recent files", "FzfLua oldfiles", "FZF"),
-          new_section("Grep text", "FzfLua live_grep", "FZF"),
-          new_section("Lazy", "Lazy", "Config"),
-          new_section("New file", "ene | startinsert", "Built-in"),
-          new_section("Quit", "qa", "Built-in"),
-        },
-      }
-    end,
-  },
   {
     "echasnovski/mini.statusline",
     config = function()

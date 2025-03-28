@@ -13,12 +13,12 @@ set("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 set("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 -- lazy
 set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
-set("n", "<leader>M", "<cmd>Mason<cr>", { desc = "Lazy" })
+set("n", "<leader>M", "<cmd>Mason<cr>", { desc = "Mason" })
 set("n", "+", "<C-a>", {desc = "Increment"})
 set("n", "-", "<C-x>", {desc = "Decrement"})
 set("n", "gl", function() vim.diagnostic.open_float() end, {desc = "Open diagnostic in float"})
-set("n","<leader>in", "ma<S-g><S-v>gg0'a", {silent=true} )
-set("n","<leader>sa", "<S-g><S-v>gg0", {silent=true} )
+set("n","<leader>in", "ma<S-g><S-v>gg0='a", {desc = "Indent whole file" ,silent=true} )
+set("n","<leader>sa", "<S-g><S-v>gg0", {desc = "Select all",silent=true} )
 
 -- better up/down
 set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
