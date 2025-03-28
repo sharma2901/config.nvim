@@ -8,13 +8,13 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.g.autoformat = true -- LazyVim auto format
-
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 local opt = vim.opt
 
 -- Make line numbers default
 opt.number = true
 opt.relativenumber = true
-
+opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
 opt.showmode = false -- Don't show the mode, since it's already in the status line
 
@@ -28,7 +28,9 @@ end)
 
 opt.breakindent = true -- Enable break indent
 opt.undofile = true -- Save undo history
-
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true
 opt.smartcase = true
@@ -59,3 +61,7 @@ opt.termguicolors = true -- True color support
 opt.smoothscroll = true
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.scrolloff = 10
+opt.undofile = true
+opt.undolevels = 10000
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
