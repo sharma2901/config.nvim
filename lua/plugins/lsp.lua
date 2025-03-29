@@ -1,5 +1,4 @@
 return {
-  -- Main LSP Configuration
   "neovim/nvim-lspconfig",
   dependencies = {
     {
@@ -30,6 +29,7 @@ return {
     "stevearc/conform.nvim",
   },
   config = function()
+    -- LspAttach
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
       callback = function(event)
@@ -47,6 +47,7 @@ return {
         map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
         map("<leader>ca", require("fzf-lua").lsp_code_actions, "[C]ode [A]ction", { "n", "x" })
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
         local function client_supports_method(client, method, bufnr)
           if vim.fn.has("nvim-0.11") == 1 then
             return client:supports_method(method, bufnr)
@@ -116,8 +117,8 @@ return {
       },
     })
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
+    local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities(client_capabilities)
 
     -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
     local servers = {
@@ -136,7 +137,6 @@ return {
       ts_ls = {},
       lua_ls = { settings = { Lua = { completion = { callSnippet = "Replace" } } } },
     }
-
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       "stylua", -- Used to format Lua code
@@ -148,7 +148,7 @@ return {
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
     require("mason-lspconfig").setup({
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+      ensure_installed = {},
       automatic_installation = false,
       handlers = {
         function(server_name)
